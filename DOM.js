@@ -54,6 +54,8 @@ paragraphs.innerHTML = `
 `;
 
 coverPic.insertAdjacentElement('afterend', paragraphs);
+const textDiv = paragraphs.querySelector('.text');
+textDiv.children[1].classList.add('warning');
 
 // Creating 4 cards with the said content
 
