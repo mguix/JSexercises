@@ -95,9 +95,6 @@ wrappingDiv.insertAdjacentElement('beforeend', containerDiv);
 
 const mileyCardButton = document.createElement('button');
 mileyCardButton.textContent = 'delete';
-mileyCardButton.addEventListener('click', function() {
-    mileyCard.remove();
-});
 
 const mileyCardText = mileyCard.querySelector('p');
 mileyCardText.insertAdjacentElement('afterend', mileyCardButton);
@@ -106,9 +103,6 @@ mileyCardText.insertAdjacentElement('afterend', mileyCardButton);
 
 const amyCardButton = document.createElement('button');
 amyCardButton.textContent = 'delete';
-amyCardButton.addEventListener('click', function() {
-    amyCard.remove();
-});
 
 const amyCardText = amyCard.querySelector('p');
 amyCardText.insertAdjacentElement('afterend', amyCardButton);
@@ -117,9 +111,6 @@ amyCardText.insertAdjacentElement('afterend', amyCardButton);
 
 const melCardButton = document.createElement('button');
 melCardButton.textContent = 'delete';
-melCardButton.addEventListener('click', function() {
-    melCard.remove();
-});
 
 const melCardText = melCard.querySelector('p');
 melCardText.insertAdjacentElement('afterend', melCardButton);
@@ -128,9 +119,16 @@ melCardText.insertAdjacentElement('afterend', melCardButton);
 
 const skyCardButton = document.createElement('button');
 skyCardButton.textContent = 'delete';
-skyCardButton.addEventListener('click', function() {
-    skyCard.remove();
-});
 
 const skyCardText = skyCard.querySelector('p');
 skyCardText.insertAdjacentElement('afterend', skyCardButton);
+
+// Looping over to add delete functionality to each button
+
+const buttons = containerDiv.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', deleteCard));
+
+function deleteCard(event){
+    const clickedButton = event.currentTarget; 
+    clickedButton.closest('.playerCard').remove();
+}
